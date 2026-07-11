@@ -1,0 +1,57 @@
+* {margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+:root {--dark-green:#0F4D37;--light-green:#2E8B57;--gold:#D4AF37;--light-gold:#F0C860;--white:#FFF;}
+body {background:linear-gradient(135deg,var(--dark-green),#15664A);min-height:100vh;color:var(--white);}
+.hidden {display:none!important;}
+
+.auth-container {display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;}
+.auth-box {background:rgba(255,255,255,.08);padding:40px 30px;border-radius:16px;width:100%;max-width:420px;border:2px solid var(--gold);text-align:center;}
+.main-logo {width:140px;margin-bottom:15px;}
+.auth-box h1 {color:var(--gold);font-size:28px;margin-bottom:8px;}
+.tagline {font-size:14px;margin-bottom:30px;opacity:.9;}
+.auth-box input,.auth-box select {width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;font-size:15px;background:rgba(255,255,255,.9);color:var(--dark-green);}
+.gold-btn {width:100%;padding:12px;background:var(--gold);color:var(--dark-green);font-weight:bold;border:none;border-radius:8px;font-size:16px;margin-top:10px;cursor:pointer;transition:.3s;}
+.gold-btn:hover {background:var(--light-gold);transform:translateY(-2px);}
+.link {color:var(--light-gold);font-weight:bold;cursor:pointer;}
+
+.dashboard {display:flex;min-height:100vh;}
+.sidebar {width:260px;background:rgba(0,0,0,.2);padding:20px 0;border-right:1px solid var(--gold);}
+.sidebar-header {text-align:center;padding:20px;border-bottom:1px solid var(--gold);}
+.sidebar-logo {width:70px;margin-bottom:8px;}
+.menu-item {padding:14px 25px;cursor:pointer;transition:.3s;border-left:4px solid transparent;}
+.menu-item:hover,.menu-item.active {background:rgba(212,175,55,.15);border-left-color:var(--gold);color:var(--light-gold);}
+.logout {margin-top:40px;color:#FFB3B3;}
+.content {flex:1;padding:30px;}
+.top-bar {margin-bottom:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.2);}
+.user-role {color:var(--light-gold);font-weight:bold;margin-top:5px;}
+
+.card-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:20px;}
+.card {background:rgba(255,255,255,.08);padding:20px;border-radius:12px;border-left:4px solid var(--gold);}
+
+.data-table {width:100%;border-collapse:collapse;margin-top:20px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden;}
+.data-table th,.data-table td {padding:14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1);}
+.data-table th {background:var(--gold);color:var(--dark-green);font-weight:bold;}
+
+.bonus-note {margin-top:15px;padding:12px;background:rgba(212,175,55,.1);border-radius:8px;}
+.small-note {margin-top:10px;font-size:13px;opacity:.8;}
+
+.calculator-box,.referral-box {margin-top:25px;padding:25px;background:rgba(255,255,255,.08);border-radius:12px;border-left:4px solid var(--gold);}
+.calc-row {margin:12px 0;display:flex;flex-direction:column;gap:6px;}
+.calc-row input,.calc-row select {padding:10px;border-radius:6px;border:none;color:var(--dark-green);font-size:15px;}
+.result-box {margin-top:15px;padding:15px;background:rgba(212,175,55,.15);border-radius:8px;color:var(--light-gold);text-align:center;}
+.link-box {display:flex;gap:10px;margin-top:10px;}
+.link-box span {flex:1;padding:10px;background:rgba(0,0,0,.2);border-radius:6px;font-size:14px;word-break:break-all;}
+.copy-btn {padding:10px 15px;background:var(--gold);color:var(--dark-green);border:none;border-radius:6px;font-weight:bold;cursor:pointer;}
+.copy-btn:hover {background:var(--light-gold);}
+
+.payment-form {max-width:700px;margin:20px auto;}
+.payment-form label {display:block;margin:15px 0 5px;font-weight:500;}
+.payment-form input,.payment-form select {width:100%;padding:12px;border-radius:8px;border:none;color:var(--dark-green);font-size:15px;}
+.note {background:rgba(212,175,55,.1);padding:12px;border-radius:8px;color:var(--light-gold);font-size:14px;}
+
+@media (max-width:768px) {
+    .dashboard {flex-direction:column;}
+    .sidebar {width:100%;border-right:none;border-bottom:1px solid var(--gold);}
+    .card-grid {grid-template-columns:1fr;}
+    .data-table {font-size:13px;}
+    .data-table th,.data-table td {padding:10px;}
+}
