@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,25 +18,25 @@
 
             <div id="loginForm">
                 <h2>Member Login</h2>
-                <input type="email" id="email" placeholder="Ilagay ang Email" required>
-                <input type="password" id="password" placeholder="Ilagay ang Password" required>
-                <button class="gold-btn" onclick="loginUser()">Mag-login</button>
-                <p>Wala pang account? <span class="link" onclick="showRegister()">Mag-register dito</span></p>
+                <input type="email" id="email" placeholder="Enter Email" required>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button class="gold-btn" onclick="loginUser()">Login</button>
+                <p>Don't have an account? <span class="link" onclick="showRegister()">Register here</span></p>
             </div>
 
             <div id="registerForm" class="hidden">
                 <h2>Member Registration</h2>
-                <input type="text" id="fullName" placeholder="Buong Pangalan" required>
+                <input type="text" id="fullName" placeholder="Full Name" required>
                 <input type="text" id="phone" placeholder="Contact Number" required>
                 <select id="memberType" required>
-                    <option value="">Piliin ang Uri ng Pagsali</option>
+                    <option value="">Select Membership Type</option>
                     <option value="Sales Partner">Sales Partner</option>
                     <option value="Project Partner">Project Partner</option>
                 </select>
                 <input type="email" id="regEmail" placeholder="Email Address" required>
                 <input type="password" id="regPass" placeholder="Password (min 6 characters)" required>
-                <button class="gold-btn" onclick="registerUser()">Mag-register</button>
-                <p>May account na? <span class="link" onclick="showLogin()">Bumalik sa Login</span></p>
+                <button class="gold-btn" onclick="registerUser()">Register</button>
+                <p>Already have an account? <span class="link" onclick="showLogin()">Back to Login</span></p>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                 <li class="menu-item" onclick="showSection('sales')">💰 Sales Commission</li>
                 <li class="menu-item" onclick="showSection('project')">📈 Project Packages</li>
                 <li class="menu-item" onclick="showSection('referral')">👥 Referral Bonus</li>
-                <li class="menu-item" onclick="showSection('payment')">💳 Magbayad / Request</li>
+                <li class="menu-item" onclick="showSection('payment')">💳 Payment / Request</li>
                 <li id="adminMenu" class="menu-item hidden" onclick="showSection('admin')">🔧 Admin Panel</li>
                 <li class="menu-item logout" onclick="logout()">🚪 Logout</li>
             </ul>
@@ -65,49 +65,49 @@
             </header>
 
             <section id="overview" class="section">
-                <h3>📋 Kabuuan ng Benepisyo</h3>
+                <h3>📋 Program Benefits Summary</h3>
                 <div class="card-grid">
-                    <div class="card"><h4>Uri ng Pagsali</h4><p id="displayType">-</p></div>
-                    <div class="card"><h4>Walang Puhunan?</h4><p>✅ Oo, para sa Sales Partner</p></div>
-                    <div class="card"><h4>Pinakamataas na Komisyon</h4><p>₱9,000 bawat proyekto</p></div>
-                    <div class="card"><h4>Pinakamataas na Kita</h4><p>60% kabuuang kita sa 120 araw</p></div>
+                    <div class="card"><h4>Membership Type</h4><p id="displayType">-</p></div>
+                    <div class="card"><h4>No Capital Required?</h4><p>✅ Yes, for Sales Partners</p></div>
+                    <div class="card"><h4>Highest Commission</h4><p>₱9,000 per project</p></div>
+                    <div class="card"><h4>Maximum Returns</h4><p>60% total profit over 120 days</p></div>
                 </div>
 
                 <div class="calculator-box">
-                    <h3>🧮 Kita Calculator</h3>
+                    <h3>🧮 Earnings Calculator</h3>
                     <div class="calc-row">
-                        <label>Piliin ang Uri:</label>
+                        <label>Select Type:</label>
                         <select id="calcType" onchange="updateCalcOptions()">
-                            <option value="">Pumili...</option>
+                            <option value="">Select...</option>
                             <option value="sales">Sales Commission</option>
                             <option value="project">Project Package</option>
                         </select>
                     </div>
                     <div id="salesCalc" class="hidden calc-row">
-                        <label>Proyekto:</label>
+                        <label>Project:</label>
                         <select id="projectSelect">
                             <option value="5250">🏡 HOME BRIGHT 5kW → ₱5,250</option>
                             <option value="9000">🏢 BUSINESS POWER 10kW → ₱9,000</option>
                             <option value="300">⚡ E-VOLT HOME 7kW → ₱300</option>
                             <option value="1800">🔌 E-STATION PRO 22kW → ₱1,800</option>
                         </select>
-                        <label>Bilang ng Deal:</label>
+                        <label>Number of Deals:</label>
                         <input type="number" id="dealCount" min="1" value="1">
                     </div>
                     <div id="projectCalc" class="hidden calc-row">
-                        <label>Halaga ng Puhunan (₱):</label>
-                        <input type="number" id="investAmount" min="1000" placeholder="Hal. 10000">
+                        <label>Investment Amount (₱):</label>
+                        <input type="number" id="investAmount" min="1000" placeholder="e.g. 10000">
                     </div>
-                    <button class="gold-btn" onclick="computeEarnings()">Kalkulahin</button>
+                    <button class="gold-btn" onclick="computeEarnings()">Calculate</button>
                     <div id="calcResult" class="result-box hidden"></div>
                 </div>
 
                 <div class="referral-box">
-                    <h3>👤 Iyong Referral Link</h3>
-                    <p>Ipadala ito sa mga gustong sumali sa iyo:</p>
+                    <h3>👤 Your Referral Link</h3>
+                    <p>Share this link with people you invite:</p>
                     <div class="link-box">
                         <span id="refLink"></span>
-                        <button class="copy-btn" onclick="copyRefLink()">📋 Kopyahin</button>
+                        <button class="copy-btn" onclick="copyRefLink()">📋 Copy</button>
                     </div>
                 </div>
             </section>
@@ -115,57 +115,57 @@
             <section id="sales" class="section hidden">
                 <h3>💰 Sales Commission Plan</h3>
                 <table class="data-table">
-                    <tr><th>Proyekto</th><th>Presyo</th><th>Komisyon Mo</th></tr>
+                    <tr><th>Project</th><th>Price</th><th>Your Commission</th></tr>
                     <tr><td>🏡 HOME BRIGHT 5kW Solar</td><td>₱75,000</td><td>₱5,250</td></tr>
                     <tr><td>🏢 BUSINESS POWER 10kW Hybrid</td><td>₱380,000</td><td>₱9,000</td></tr>
                     <tr><td>⚡ E-VOLT HOME 7kW EV Charger</td><td>₱55,000</td><td>₱300</td></tr>
                     <tr><td>🔌 E-STATION PRO 22kW Commercial</td><td>₱190,000</td><td>₱1,800</td></tr>
                 </table>
-                <div class="bonus-note"><p><strong>🎁 Dagdag Bonus:</strong> 3+ deal/mo → +2% | 5+ deal/mo → +3%</p></div>
+                <div class="bonus-note"><p><strong>🎁 Additional Bonus:</strong> 3+ deals/mo → +2% | 5+ deals/mo → +3%</p></div>
             </section>
 
             <section id="project" class="section hidden">
                 <h3>📈 Project Partner Packages</h3>
                 <table class="data-table">
-                    <tr><th>Pakete</th><th>Investment</th><th>Kabuuang Kita</th><th>Tagal</th><th>Araw-araw na Kita</th></tr>
-                    <tr><td>🌱 SUNRISE STARTER</td><td>₱1,000–5,000</td><td>8%</td><td>30 Araw</td><td>0.27%</td></tr>
-                    <tr><td>🌤️ GROWTH SEED</td><td>₱5,001–10,000</td><td>15%</td><td>45 Araw</td><td>0.34%</td></tr>
-                    <tr><td>☀️ SOLID HARVEST</td><td>₱10,001–25,000</td><td>25%</td><td>60 Araw</td><td>0.42%</td></tr>
-                    <tr><td>🚀 ENERGY BOOST</td><td>₱25,001–50,000</td><td>40%</td><td>90 Araw</td><td>0.45%</td></tr>
-                    <tr><td>🏆 VISION ELITE</td><td>₱50,001–100,000</td><td>60%</td><td>120 Araw</td><td>0.50%</td></tr>
+                    <tr><th>Package</th><th>Investment</th><th>Total Return</th><th>Duration</th><th>Daily Return</th></tr>
+                    <tr><td>🌱 SUNRISE STARTER</td><td>₱1,000–5,000</td><td>8%</td><td>30 Days</td><td>0.27%</td></tr>
+                    <tr><td>🌤️ GROWTH SEED</td><td>₱5,001–10,000</td><td>15%</td><td>45 Days</td><td>0.34%</td></tr>
+                    <tr><td>☀️ SOLID HARVEST</td><td>₱10,001–25,000</td><td>25%</td><td>60 Days</td><td>0.42%</td></tr>
+                    <tr><td>🚀 ENERGY BOOST</td><td>₱25,001–50,000</td><td>40%</td><td>90 Days</td><td>0.45%</td></tr>
+                    <tr><td>🏆 VISION ELITE</td><td>₱50,001–100,000</td><td>60%</td><td>120 Days</td><td>0.50%</td></tr>
                 </table>
-                <p class="small-note">* Buong puhunan ay ibabalik sa pagtatapos ng termino. +2% dagdag kung magre-invest ulit.</p>
+                <p class="small-note">* Full principal is returned at the end of the term. +2% bonus for reinvestments.</p>
             </section>
 
             <section id="referral" class="section hidden">
                 <h3>👥 Multi-Level Referral Bonus</h3>
                 <table class="data-table">
-                    <tr><th>Antas</th><th>Rate ng Bonus</th></tr>
-                    <tr><td>1st (Direktang Inimbita)</td><td>3%</td></tr>
+                    <tr><th>Level</th><th>Bonus Rate</th></tr>
+                    <tr><td>1st (Direct Invite)</td><td>3%</td></tr>
                     <tr><td>2nd Level</td><td>2%</td></tr>
                     <tr><td>3rd Level</td><td>1%</td></tr>
                     <tr><td>4th Level</td><td>0.5%</td></tr>
                     <tr><td>5th Level</td><td>0.5%</td></tr>
                 </table>
-                <p class="small-note">* Batay sa puhunan ng inimbita o pag-activate bilang Sales Partner.</p>
+                <p class="small-note">* Based on the investment or activation of the referred member.</p>
             </section>
 
             <section id="payment" class="section hidden">
-                <h3>💳 Mag-request ng Puhunan</h3>
+                <h3>💳 Investment Payment Request</h3>
                 <div class="payment-form">
-                    <p class="note">Piliin ang pakete at ilagay ang detalye ng iyong bayad.</p>
-                    <label>Piliin ang Package:</label>
+                    <p class="note">Select your package and enter your payment details.</p>
+                    <label>Select Package:</label>
                     <select id="selectedPackage">
-                        <option value="">Pumili...</option>
+                        <option value="">Select...</option>
                         <option value="SUNRISE STARTER">🌱 SUNRISE STARTER (₱1,000–5,000)</option>
                         <option value="GROWTH SEED">🌤️ GROWTH SEED (₱5,001–10,000)</option>
                         <option value="SOLID HARVEST">☀️ SOLID HARVEST (₱10,001–25,000)</option>
                         <option value="ENERGY BOOST">🚀 ENERGY BOOST (₱25,001–50,000)</option>
                         <option value="VISION ELITE">🏆 VISION ELITE (₱50,001–100,000)</option>
                     </select>
-                    <label>Halaga (₱):</label>
+                    <label>Amount (₱):</label>
                     <input type="number" id="payAmount" min="1000">
-                    <label>Paraan ng Bayad:</label>
+                    <label>Payment Method:</label>
                     <select id="payMethod">
                         <option value="GCash">GCash</option>
                         <option value="Maya">Maya</option>
@@ -173,12 +173,12 @@
                     </select>
                     <label>Reference No.:</label>
                     <input type="text" id="payRef">
-                    <button class="gold-btn" onclick="submitPayment()">Ipadala Request</button>
+                    <button class="gold-btn" onclick="submitPayment()">Submit Request</button>
                     <div id="payStatus" class="result-box hidden"></div>
                 </div>
-                <h4 style="margin-top:25px;">📋 Aking Mga Request</h4>
+                <h4 style="margin-top:25px;">📋 My Requests</h4>
                 <table class="data-table">
-                    <tr><th>Pakete</th><th>Halaga</th><th>Katayuan</th><th>Petsa</th></tr>
+                    <tr><th>Package</th><th>Amount</th><th>Status</th><th>Date</th></tr>
                     <tbody id="myPayments"></tbody>
                 </table>
             </section>
@@ -186,17 +186,17 @@
             <section id="admin" class="section hidden">
                 <h3>🔧 Admin Control Center</h3>
                 <div class="card-grid">
-                    <div class="card"><h4>Kabuuang Miyembro</h4><p id="totalMembers">0</p></div>
-                    <div class="card"><h4>Naka-pending na Bayad</h4><p id="pendingPayments">0</p></div>
+                    <div class="card"><h4>Total Members</h4><p id="totalMembers">0</p></div>
+                    <div class="card"><h4>Pending Payments</h4><p id="pendingPayments">0</p></div>
                 </div>
-                <h4 style="margin-top:25px;">📋 Listahan ng Miyembro</h4>
+                <h4 style="margin-top:25px;">📋 Member List</h4>
                 <table class="data-table">
-                    <tr><th>Pangalan</th><th>Email</th><th>Uri</th><th>Petsa</th><th>Katayuan</th><th>Aksyon</th></tr>
+                    <tr><th>Name</th><th>Email</th><th>Type</th><th>Date Joined</th><th>Status</th><th>Action</th></tr>
                     <tbody id="membersList"></tbody>
                 </table>
-                <h4 style="margin-top:25px;">💳 Mga Request sa Bayad</h4>
+                <h4 style="margin-top:25px;">💳 Payment Requests</h4>
                 <table class="data-table">
-                    <tr><th>Miyembro</th><th>Pakete</th><th>Halaga</th><th>Katayuan</th><th>Aksyon</th></tr>
+                    <tr><th>Member</th><th>Package</th><th>Amount</th><th>Status</th><th>Action</th></tr>
                     <tbody id="paymentList"></tbody>
                 </table>
             </section>
@@ -204,15 +204,14 @@
     </div>
 
     <script>
-        // 👇 PALITAN ITO NG IYONG FIREBASE CONFIG
-      const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
+        // 👇 REPLACE THIS WITH YOUR FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
 
         firebase.initializeApp(firebaseConfig);
@@ -234,14 +233,14 @@
             const type = document.getElementById('memberType').value;
             const email = document.getElementById('regEmail').value;
             const pass = document.getElementById('regPass').value;
-            if(pass.length < 6) return alert("Password dapat hindi bababa sa 6 na karakter!");
+            if(pass.length < 6) return alert("Password must be at least 6 characters!");
             auth.createUserWithEmailAndPassword(email, pass)
             .then((userCred) => {
                 db.collection('members').doc(userCred.user.uid).set({
                     fullName: name, phone: phone, memberType: type, email: email,
                     joinedAt: new Date(), approved: false
                 });
-                alert("Nakarehistro na! Mag-login ka na.");
+                alert("Registration successful! Please login now.");
                 showLogin();
             }).catch(err => alert("Error: " + err.message));
         }
@@ -251,7 +250,7 @@
             const pass = document.getElementById('password').value;
             auth.signInWithEmailAndPassword(email, pass)
             .then(userCred => loadUserData(userCred.user.uid))
-            .catch(err => alert("Maling email o password!"));
+            .catch(err => alert("Invalid email or password!"));
         }
 
         function loadUserData(uid) {
@@ -291,7 +290,7 @@
         }
         function copyRefLink() {
             navigator.clipboard.writeText(document.getElementById('refLink').textContent)
-            .then(() => alert("Nakopya na!"));
+            .then(() => alert("Link copied to clipboard!"));
         }
 
         function updateCalcOptions() {
@@ -313,7 +312,7 @@
                 total = comm * cnt;
                 if(cnt>=5) { total += total*0.03; note=' (+3% bonus)'; }
                 else if(cnt>=3) { total += total*0.02; note=' (+2% bonus)'; }
-                res.innerHTML = `<strong>Tinatayang Komisyon: ₱${total.toLocaleString()}</strong>${note}`;
+                res.innerHTML = `<strong>Estimated Commission: ₱${total.toLocaleString()}</strong>${note}`;
             } else if(t==='project') {
                 const amt = parseInt(document.getElementById('investAmount').value);
                 let pct, days, dr;
@@ -322,10 +321,10 @@
                 else if(amt>=10001&&amt<=25000) {pct=25;days=60;dr=0.42;}
                 else if(amt>=25001&&amt<=50000) {pct=40;days=90;dr=0.45;}
                 else if(amt>=50001&&amt<=100000) {pct=60;days=120;dr=0.50;}
-                else return alert("Labas sa sakop ang halaga!");
-                const prof = amt * pct/100;
+                else return alert("Amount is outside eligible range!");
+                const profit = amt * pct/100;
                 const daily = amt * dr/100;
-                res.innerHTML = `<strong>Kabuuang Kita: ₱${prof.toLocaleString()}</strong><br>Tagal: ${days} araw | Araw-araw: ₱${daily.toFixed(2)}<br><small>Puhunan na ₱${amt.toLocaleString()} ay ibabalik sa dulo</small>`;
+                res.innerHTML = `<strong>Total Profit: ₱${profit.toLocaleString()}</strong><br>Term: ${days} Days | Daily: ₱${daily.toFixed(2)}<br><small>Principal of ₱${amt.toLocaleString()} will be returned at maturity</small>`;
             }
             res.classList.remove('hidden');
         }
@@ -336,17 +335,17 @@
             const method = document.getElementById('payMethod').value;
             const ref = document.getElementById('payRef').value;
             const status = document.getElementById('payStatus');
-            if(!pkg||!amt||!method||!ref) return alert("Punan lahat ng detalye!");
+            if(!pkg||!amt||!method||!ref) return alert("Please fill all required fields!");
             const user = auth.currentUser;
             const uSnap = await db.collection('members').doc(user.uid).get();
             status.classList.remove('hidden');
-            status.innerHTML = "⏳ Ipinapasa...";
+            status.innerHTML = "⏳ Submitting request...";
             await db.collection('payments').add({
                 userId: user.uid, memberName: uSnap.data().fullName,
                 packageName: pkg, amount: amt, method: method,
                 reference: ref, status: "pending", submittedAt: new Date()
             });
-            status.innerHTML = "✅ Naipadala! Hintayin ang approval.";
+            status.innerHTML = "✅ Request submitted! Please wait for approval.";
             loadMyPayments(user.uid);
         }
 
@@ -354,10 +353,10 @@
             const snap = await db.collection('payments').where("userId","==",uid).orderBy("submittedAt","desc").get();
             const list = document.getElementById('myPayments');
             list.innerHTML = "";
-            if(snap.empty) { list.innerHTML = `<tr><td colspan="4" style="text-align:center;">Wala pang request</td></tr>`; return; }
+            if(snap.empty) { list.innerHTML = `<tr><td colspan="4" style="text-align:center;">No requests yet</td></tr>`; return; }
             snap.forEach(doc => {
                 const p = doc.data();
-                const st = p.status==='pending'?"⏳ Pending":p.status==='approved'?"✅ Naaprubahan":"❌ Tinanggihan";
+                const st = p.status==='pending'?"⏳ Pending":p.status==='approved'?"✅ Approved":"❌ Rejected";
                 list.innerHTML += `<tr><td>${p.packageName}</td><td>₱${p.amount.toLocaleString()}</td><td>${st}</td><td>${new Date(p.submittedAt.toDate()).toLocaleDateString()}</td></tr>`;
             });
         }
@@ -368,22 +367,22 @@
             const mList = document.getElementById('membersList'); mList.innerHTML = "";
             mSnap.forEach(doc => {
                 const m = doc.data();
-                mList.innerHTML += `<tr><td>${m.fullName}</td><td>${m.email}</td><td>${m.memberType}</td><td>${new Date(m.joinedAt.toDate()).toLocaleDateString()}</td><td>${m.approved?"✅":"⏳"}</td><td>${!m.approved?`<button class="gold-btn" style="padding:5px 10px;font-size:12px;" onclick="approveMember('${doc.id}')">Aprubahan</button>`:""}</td></tr>`;
+                mList.innerHTML += `<tr><td>${m.fullName}</td><td>${m.email}</td><td>${m.memberType}</td><td>${new Date(m.joinedAt.toDate()).toLocaleDateString()}</td><td>${m.approved?"✅":"⏳"}</td><td>${!m.approved?`<button class="gold-btn" style="padding:5px 10px;font-size:12px;" onclick="approveMember('${doc.id}')">Approve</button>`:""}</td></tr>`;
             });
             const pSnap = await db.collection('payments').where("status","==","pending").get();
             document.getElementById('pendingPayments').textContent = pSnap.size;
             const pList = document.getElementById('paymentList'); pList.innerHTML = "";
             pSnap.forEach(doc => {
                 const p = doc.data();
-                pList.innerHTML += `<tr><td>${p.memberName}</td><td>${p.packageName}</td><td>₱${p.amount.toLocaleString()}</td><td>⏳ Pending</td><td><button class="gold-btn" style="padding:5px 10px;font-size:12px;" onclick="approvePayment('${doc.id}')">Aprubahan</button></td></tr>`;
+                pList.innerHTML += `<tr><td>${p.memberName}</td><td>${p.packageName}</td><td>₱${p.amount.toLocaleString()}</td><td>⏳ Pending</td><td><button class="gold-btn" style="padding:5px 10px;font-size:12px;" onclick="approvePayment('${doc.id}')">Approve</button></td></tr>`;
             });
         }
 
         function approveMember(uid) {
-            db.collection('members').doc(uid).update({approved:true}).then(()=>{alert("Naaprubahan!");loadAdminData();});
+            db.collection('members').doc(uid).update({approved:true}).then(()=>{alert("Member approved!");loadAdminData();});
         }
         function approvePayment(pid) {
-            db.collection('payments').doc(pid).update({status:"approved",approvedAt:new Date()}).then(()=>{alert("Bayad naaprubahan!");loadAdminData();});
+            db.collection('payments').doc(pid).update({status:"approved",approvedAt:new Date()}).then(()=>{alert("Payment approved!");loadAdminData();});
         }
 
         auth.onAuthStateChanged(u => {if(u) loadUserData(u.uid);});
